@@ -35,7 +35,7 @@ jobs:
   openssl-nghttp2:
     strategy:
       matrix:
-        target: [ios, android]
+        target: [android]
         component: [openssl, nghttp2]
         include:
           
@@ -121,7 +121,7 @@ jobs:
   curl:
     strategy:
       matrix:
-        target: [ios, android]
+        target: [android]
         component: [curl]
         include:
                     
