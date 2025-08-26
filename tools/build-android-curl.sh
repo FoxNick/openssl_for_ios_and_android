@@ -64,7 +64,7 @@ function configure_make() {
     if [ -d "${LIB_NAME}" ]; then
         rm -fr "${LIB_NAME}"
     fi
-    tar xfz "${LIB_NAME}.tar.gz"
+    tar xf "${LIB_NAME}.tar.gz"
     pushd .
     cd "${LIB_NAME}"
 
