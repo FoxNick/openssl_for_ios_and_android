@@ -19,7 +19,7 @@ jobs:
           dt="${{ github.event.commits[0].timestamp }}" && echo "release_date=${dt:0:10}" >> $GITHUB_ENV
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: actions/create-release@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -67,7 +67,7 @@ jobs:
 
     steps:
       - name: Checkout Sources
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - name: Setup Environment Variables
@@ -96,7 +96,7 @@ jobs:
           mv "output/${{ matrix.target }}/${{ matrix.component }}-${{ matrix.abi || matrix.arch }}/"{lib,include} "$product_dir/" || true
         if: always()
       - name: Upload Binaries
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ env.product_dir }}
           path: ./${{ env.product_dir }}
@@ -107,7 +107,7 @@ jobs:
           zip -r ../$product_dir.zip *
       - name: Upload Release Asset
         id: upload-release-asset
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -149,7 +149,7 @@ jobs:
 
     steps:
       - name: Checkout Sources
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - name: Setup Environment Variables
@@ -178,7 +178,7 @@ jobs:
           mv "output/${{ matrix.target }}/${{ matrix.component }}-${{ matrix.abi || matrix.arch }}/"{lib,include} "$product_dir/" || true
         if: always()
       - name: Upload Binaries
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ env.product_dir }}
           path: ./${{ env.product_dir }}
@@ -189,7 +189,7 @@ jobs:
           zip -r ../$product_dir.zip *
       - name: Upload Release Asset
         id: upload-release-asset
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
