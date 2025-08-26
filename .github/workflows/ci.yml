@@ -38,13 +38,6 @@ jobs:
         target: [android]
         component: [openssl, nghttp2]
         include:
-          
-          # iOS Configuration
-          - target: ios
-            arch: arm64
-            sdk: iphoneos
-            api: "8.0"
-            platform: iPhoneOS
 
           # Android Configuration
           - target: android
@@ -124,13 +117,6 @@ jobs:
         target: [android]
         component: [curl]
         include:
-                    
-          # iOS Configuration
-          - target: ios
-            arch: arm64
-            sdk: iphoneos
-            api: "8.0"
-            platform: iPhoneOS
 
           # Android Configuration
           - target: android
