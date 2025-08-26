@@ -19,7 +19,7 @@ jobs:
           dt="${{ github.event.commits[0].timestamp }}" && echo "release_date=${dt:0:10}" >> $GITHUB_ENV
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v3
+        uses: actions/create-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
