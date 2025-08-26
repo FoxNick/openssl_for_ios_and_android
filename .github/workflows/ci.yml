@@ -67,7 +67,7 @@ jobs:
 
     steps:
       - name: Checkout Sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1
       - name: Setup Environment Variables
@@ -96,7 +96,7 @@ jobs:
           mv "output/${{ matrix.target }}/${{ matrix.component }}-${{ matrix.abi || matrix.arch }}/"{lib,include} "$product_dir/" || true
         if: always()
       - name: Upload Binaries
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ env.product_dir }}
           path: ./${{ env.product_dir }}
@@ -107,7 +107,7 @@ jobs:
           zip -r ../$product_dir.zip *
       - name: Upload Release Asset
         id: upload-release-asset
-        uses: actions/upload-release-asset@v3
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -149,7 +149,7 @@ jobs:
 
     steps:
       - name: Checkout Sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1
       - name: Setup Environment Variables
@@ -178,7 +178,7 @@ jobs:
           mv "output/${{ matrix.target }}/${{ matrix.component }}-${{ matrix.abi || matrix.arch }}/"{lib,include} "$product_dir/" || true
         if: always()
       - name: Upload Binaries
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ env.product_dir }}
           path: ./${{ env.product_dir }}
@@ -189,7 +189,7 @@ jobs:
           zip -r ../$product_dir.zip *
       - name: Upload Release Asset
         id: upload-release-asset
-        uses: actions/upload-release-asset@v3
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
